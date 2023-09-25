@@ -7,14 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.domain.direccion.Direccion;
 
-@Table(name="medicos")
-@Entity(name="Medico")
+@Table(name = "medicos")
+@Entity(name = "Medico")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of="id")
-
+@EqualsAndHashCode(of = "id")
 public class Medico {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +22,7 @@ public class Medico {
     private String email;
     private String telefono;
     private String documento;
+
     private Boolean activo;
     @Enumerated(EnumType.STRING)
     private Especialidad especialidad;
@@ -32,8 +33,8 @@ public class Medico {
         this.activo = true;
         this.nombre = datosRegistroMedico.nombre();
         this.email = datosRegistroMedico.email();
-        this.telefono = datosRegistroMedico.telefono();
         this.documento = datosRegistroMedico.documento();
+        this.telefono = datosRegistroMedico.telefono();
         this.especialidad = datosRegistroMedico.especialidad();
         this.direccion = new Direccion(datosRegistroMedico.direccion());
     }
@@ -43,10 +44,10 @@ public class Medico {
             this.nombre = datosActualizarMedico.nombre();
         }
         if (datosActualizarMedico.documento() != null) {
-        this.documento = datosActualizarMedico.documento();
+            this.documento = datosActualizarMedico.documento();
         }
         if (datosActualizarMedico.direccion() != null) {
-        this.direccion = direccion.actualizarDatos(datosActualizarMedico.direccion());
+            this.direccion = direccion.actualizarDireccion(datosActualizarMedico.direccion());
         }
     }
 

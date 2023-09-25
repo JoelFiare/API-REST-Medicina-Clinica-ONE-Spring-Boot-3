@@ -1,7 +1,6 @@
 package med.voll.api.domain.direccion;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 public record DatosDireccion(
         @NotBlank
@@ -10,9 +9,8 @@ public record DatosDireccion(
         String distrito,
         @NotBlank
         String ciudad,
-        @NotNull
-        int numero,
         @NotBlank
-        String complemento
-        ) {
+        String numero,
+        @NotBlank
+        String complemento) {
 }

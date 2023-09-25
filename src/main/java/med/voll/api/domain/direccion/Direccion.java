@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Direccion {
+
     private String calle;
-    private Integer numero;
+    private String numero;
     private String complemento;
     private String distrito;
     private String ciudad;
@@ -26,7 +26,7 @@ public class Direccion {
 
     }
 
-    public Direccion actualizarDatos(DatosDireccion direccion) {
+    public Direccion actualizarDireccion(DatosDireccion direccion) {
         this.calle = direccion.calle();
         this.numero = direccion.numero();
         this.distrito = direccion.distrito();
