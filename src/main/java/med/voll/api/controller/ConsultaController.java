@@ -23,8 +23,9 @@ public class ConsultaController {
     @Transactional
     public ResponseEntity agendar(@RequestBody @Valid DatosAgendarConsulta datos){
 
+        System.out.println(datos);
         service.agendar(datos);
 
-        return ResponseEntity.ok(new DatosDetalleConsulta(null,null,null,null));
+        return ResponseEntity.ok(new DatosDetalleConsulta(null, null, null, null));
     }
 }

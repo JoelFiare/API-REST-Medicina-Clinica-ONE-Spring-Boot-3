@@ -12,15 +12,14 @@ import java.time.LocalDateTime;
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
     Page<Medico> findByActivoTrue(Pageable paginacion);
 
-
     @Query
             ("""
             select m from Medico m
-            where m.activo= 1 
+            where m.activo=true
             and
-            m.especialidad=:especialidad 
+            m.especialidad=:especialidad
             and
-            m.id not in(  
+            m.id not in(
                 select c.medico.id from Consulta c
                 where
                 c.fecha=:fecha
@@ -29,7 +28,6 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
             limit 1
             """)
     Medico seleccionarMedicoConEspecialidadEnFecha(Especialidad especialidad, LocalDateTime fecha);
-
 
     @Query("""
             select m.activo 

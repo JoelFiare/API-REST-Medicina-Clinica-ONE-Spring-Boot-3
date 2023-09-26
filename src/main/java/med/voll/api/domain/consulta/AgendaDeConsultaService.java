@@ -27,14 +27,13 @@ public class AgendaDeConsultaService {
             throw new ValidacionDeIntegridad("este id para el medico no fue encontrado");
         }
 
+        //validaciones
+
         var paciente = pacienteRepository.findById(datos.idPaciente()).get();
-
         var medico = seleccionarMedico(datos);
-
         var consulta = new Consulta(null,medico,paciente,datos.fecha());
 
         consultaRepository.save(consulta);
-
     }
 
     private Medico seleccionarMedico(DatosAgendarConsulta datos) {
@@ -44,8 +43,6 @@ public class AgendaDeConsultaService {
         if(datos.especialidad()==null){
             throw new ValidacionDeIntegridad("debe seleccionarse una especialidad para el medico");
         }
-
-
         return medicoRepository.seleccionarMedicoConEspecialidadEnFecha(datos.especialidad(),datos.fecha());
     }
 }
