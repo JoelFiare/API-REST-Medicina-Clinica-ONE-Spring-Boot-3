@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @ResponseBody
 @RequestMapping("/consultas")
 @SecurityRequirement(name="bearer-key")
+
 public class ConsultaController {
 
     @Autowired
