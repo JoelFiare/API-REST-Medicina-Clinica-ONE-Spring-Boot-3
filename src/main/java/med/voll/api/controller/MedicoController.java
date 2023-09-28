@@ -1,6 +1,5 @@
 package med.voll.api.controller;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
@@ -19,7 +18,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/medicos")
-@SecurityRequirement(name="bearer-key")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
     @Autowired

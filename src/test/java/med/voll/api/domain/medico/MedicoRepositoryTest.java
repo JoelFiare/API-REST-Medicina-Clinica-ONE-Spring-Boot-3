@@ -16,13 +16,11 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.TemporalAdjusters;
-
-import static med.voll.api.domain.consulta.MotivoCancelamiento.OTROS;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@DataJpaTest //indica que vamos a trabajar con persistencia de DB
-@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE) //realizar operaciones con DB externas
-@ActiveProfiles("test") //idicar el perfil que vamos a usar
+@DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@ActiveProfiles("test")
 class MedicoRepositoryTest {
 
     @Autowired
@@ -41,7 +39,6 @@ class MedicoRepositoryTest {
 
         var medico=registrarMedico("Jose","j@mail.com","123456",Especialidad.CARDIOLOGIA);
         var paciente= registrarPaciente("antonio","a@mail.com","654321");
-
         registrarConsulta(medico,paciente,proximoLunes10H);
 
         //when
@@ -70,7 +67,7 @@ class MedicoRepositoryTest {
     }
 
     private void registrarConsulta(Medico medico, Paciente paciente, LocalDateTime fecha) {
-        em.persist(new Consulta(null, medico, paciente, fecha,null));
+        em.persist(new Consulta(null, medico, paciente, fecha, null));
     }
 
     private Medico registrarMedico(String nombre, String email, String documento, Especialidad especialidad) {
@@ -117,3 +114,5 @@ class MedicoRepositoryTest {
     }
 
 }
+
+

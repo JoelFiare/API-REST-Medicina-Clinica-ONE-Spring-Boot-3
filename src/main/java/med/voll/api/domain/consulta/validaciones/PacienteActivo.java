@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PacienteActivo implements ValidadorDeConsultas{
-
     @Autowired
     private PacienteRepository repository;
 
@@ -16,10 +15,10 @@ public class PacienteActivo implements ValidadorDeConsultas{
         if(datos.idPaciente()==null){
             return;
         }
-        var pacienteActivo = repository.findActivoById(datos.idPaciente());
+        var pacienteActivo=repository.findActivoById(datos.idPaciente());
 
-        if (!pacienteActivo) {
-            throw new ValidationException("No se pueden permitir agendar citas con pacientes inactivos en el sistema");
+        if(!pacienteActivo){
+            throw new ValidationException("No se puede permitir agendar citas con pacientes inactivos en el sistema");
         }
     }
 }

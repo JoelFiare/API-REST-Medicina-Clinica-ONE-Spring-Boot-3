@@ -1,6 +1,7 @@
 package med.voll.api.controller;
 
 
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
@@ -17,7 +18,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/pacientes")
-@SecurityRequirement(name="bearer-key")
+@SecurityRequirement(name = "bearer-key")
+@SuppressWarnings("all")
 public class PacienteController {
 
     @Autowired
@@ -67,7 +69,4 @@ public class PacienteController {
         var paciente = repository.getReferenceById(id);
         return ResponseEntity.ok(new DatosDetallesPaciente(paciente));
     }
-
-
 }
-
