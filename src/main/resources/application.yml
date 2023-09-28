@@ -1,5 +1,4 @@
 spring:
-  profile.active: dev
   datasource:
     url: jdbc:mysql://localhost/vollmed_api
     username: root
@@ -9,6 +8,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  profiles:
+    active: dev, test, prod
 
 server:
   error:
